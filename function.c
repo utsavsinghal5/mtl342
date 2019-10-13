@@ -3,6 +3,35 @@
 #include <stdbool.h>
 #include "sudoku_lib.h"
 
+
+/* The main function, a fairly generic backtracking algorithm. */
+void solve_sudoku(void)
+{
+    int pos = 0;
+    while (1) {
+        while (pos < 81 && input_sudoku_position[pos/9][pos%9]) {
+            ++pos;
+        }
+        if (pos >= 81) {
+            break;
+        }
+        if (advance_cell(pos/9, pos%9)) {
+            ++pos;
+        } else {
+            do {
+                --pos;
+            } while (pos >= 0 && input_sudoku_position[pos/9][pos%9]);
+            if (pos < 0) {
+                printf("No valid solution exist for this set of sudoku entries.\n");
+                printf("Please try different values\n");
+                printf("Or check again if used same index more than once while entering input\n");
+                exit(1);
+            }
+        }
+    }
+    return;
+}
+
 /* Initializes the array with powers of 2. */
 void init_powers_of_two(void)
 {
@@ -18,7 +47,7 @@ int square(int i, int j)
 }
 
 /* Stores the number n in the cell (i, j), and turns on the corresponding
-powers_of_two in rows, cols, and squares.*/
+bits in rows, cols, and squares.*/
 // Also removes if entered matrix is not following
 // rules of sudoku or same index is repeatedly entered
 void set_cell(int i, int j, int n)
@@ -35,7 +64,7 @@ void set_cell(int i, int j, int n)
 
 
 
-/* Clears the cell (i, j) and turns off the corresponding powers_of_two in rows, cols,
+/* Clears the cell (i, j) and turns off the corresponding bits in rows, cols,
 and squares. Returns the number it contained. */
 int clear_cell(int i, int j)
 {
@@ -86,31 +115,4 @@ bool advance_cell(int i, int j)
     return false;
 }
 
-/* The main function, a fairly generic backtracking algorithm. */
-void solve_sudoku(void)
-{
-    int pos = 0;
-    while (1) {
-        while (pos < 81 && input_sudoku_position[pos/9][pos%9]) {
-            ++pos;
-        }
-        if (pos >= 81) {
-            break;
-        }
-        if (advance_cell(pos/9, pos%9)) {
-            ++pos;
-        } else {
-            do {
-                --pos;
-            } while (pos >= 0 && input_sudoku_position[pos/9][pos%9]);
-            if (pos < 0) {
-                printf("No valid solution exist for this set of sudoku entries.\n");
-                printf("Please try different values\n");
-                printf("Or check again if used same index more than once while entering input\n");
-                exit(1);
-            }
-        }
-    }
-    return;
-}
 

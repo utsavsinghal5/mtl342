@@ -5,7 +5,7 @@
 
 
 
-void print_separator(void);
+void row_separator(void);
 
 /* The Sudoku matrix itself. */
 int matrix[9][9];
@@ -42,6 +42,7 @@ int main(int argc, char** argv)
     // Solving of sudoku starts here
     solve_sudoku();
 
+
     // Below is the print function which outputs the sudoku 
     // in a proper square matrix format with proper boundaries.
     // It uses data stored in matrix[9][9] and input_sudoku_position[9][9]
@@ -50,7 +51,7 @@ int main(int argc, char** argv)
     for (int i = 0; i < 9; ++i) {
         printf("                    ");
         if ((i % 3) == 0) {
-            print_separator();
+            row_separator();
             printf("                    ");
         }
         for (int j = 0; j < 9; j++) {
@@ -69,12 +70,12 @@ int main(int argc, char** argv)
         printf("\e[1;34m|\e[0m \n");
     }
     printf("                    ");
-    print_separator();
+    row_separator();
     return 0;
 }
 
 /* Utility to print lines and crosses, used by print_matrix. */
-void print_separator(void)
+void row_separator(void)
 {
     for (int i = 0; i < 3; ++i) {
         printf("\e[1;34m+---------\e[0m");
