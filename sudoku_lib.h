@@ -2,27 +2,38 @@
 #define _SUDOKU_LIB_H_
 
 /* An array with some powers of 2 to avoid shifting all the time. */
-int powers_of_two[10];
+extern int powers_of_two[10];
 
 /* The Sudoku matrix itself. */
-int matrix[9][9];
+extern int matrix[9][9];
 
 /* Which numbers were given as input_sudoku_position in the problem. */
-int input_sudoku_position[9][9];
+extern int input_sudoku_position[9][9];
 
 /* An array of nine integers, each of which representing a sub-square.
 Each integer has its nth-bit on iff n belongs to the corresponding sub-square. */
-int squares[9];
+extern int squares[9];
 
 /* An array of nine integers, each of which representing a row.
 Each integer has its nth-bit on iff n belongs to the corresponding row. */
-int rows[9];
+extern int rows[9];
 
 /* An array of nine integers, each of which representing a column.
 Each integer has its nth-bit on iff n belongs to the corresponding column. */
-int cols[9];
+extern int cols[9];
 
 /* An array with some powers of 2 to avoid shifting all the time. */
-int powers_of_two[10];
+extern int powers_of_two[10];
+
+void init_powers_of_two(void);
+int square(int i, int j);
+void set_cell(int i, int j, int n);
+int clear_cell(int i, int j);
+void init_input_sudoku_position(size_t count, char** cells);
+bool is_available(int i, int j, int n);
+bool advance_cell(int i, int j);
+void solve_sudoku(void);
+void print_matrix(void);
+
 
 #endif
