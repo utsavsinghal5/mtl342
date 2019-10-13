@@ -19,7 +19,9 @@ int square(int i, int j)
 }
 
 /* Stores the number n in the cell (i, j), and turns on the corresponding
-powers_of_two in rows, cols, and squares. */
+powers_of_two in rows, cols, and squares.*/
+// Also removes if entered matrix is not following
+// rules of sudoku or same index is repeatedly entered
 void set_cell(int i, int j, int n)
 {
     if(!is_available(i,j,n)){
@@ -64,14 +66,15 @@ void init_input_sudoku_position(size_t count, char** cells)
     }
 }
 
-/* Can we put n in the cell (i, j)? */
+/* Can we put n in the cell (i, j) according to sudoku rules? */
 bool is_available(int i, int j, int n)
 {
     return (rows[i] & powers_of_two[n]) == 0 && (cols[j] & powers_of_two[n]) == 0 && (squares[square(i, j)] & powers_of_two[n]) == 0;
 }
 
 /* Tries to fill the cell (i, j) with the next available number.
-Returns a flag to indicate if it succeeded. */
+Returns a flag to indicate if it succeeded. If not succeeded, if in solve_sudoku() 
+will perform a bactrack action*/
 bool advance_cell(int i, int j)
 {
     int n = clear_cell(i, j);
@@ -111,9 +114,4 @@ void solve_sudoku(void)
     }
     return;
 }
-
-
-
-/* Prints the matrix using some ANSI escape sequences
-to distinguish the originally input_sudoku_position numbers. */
 

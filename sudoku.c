@@ -7,9 +7,6 @@
 
 void print_separator(void);
 
-/* An array with some powers of 2 to avoid shifting all the time. */
-int powers_of_two[10];
-
 /* The Sudoku matrix itself. */
 int matrix[9][9];
 
@@ -36,14 +33,18 @@ int main(int argc, char** argv)
 {   
     //Initialize powers of two in a set to avoid
     //repeated multiplication with power of two
-    //during execution.
+    //during execution. Stored in powers_of_two[10]
     init_powers_of_two();
 
     //Initializes input sudoku entries and checks its validity
     init_input_sudoku_position(argc-1, argv+1);
 
+    // Solving of sudoku starts here
     solve_sudoku();
-    
+
+    // Below is the print function which outputs the sudoku 
+    // in a proper square matrix format with proper boundaries.
+    // It uses data stored in matrix[9][9] and input_sudoku_position[9][9]
     for (int i = 0; i < 9; ++i) {
         printf("                    ");
         if ((i % 3) == 0) {
@@ -67,7 +68,6 @@ int main(int argc, char** argv)
     }
     printf("                    ");
     print_separator();
-
     return 0;
 }
 

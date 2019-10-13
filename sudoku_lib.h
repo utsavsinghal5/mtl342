@@ -22,9 +22,6 @@ extern int rows[9];
 Each integer has its nth-bit on iff n belongs to the corresponding column. */
 extern int cols[9];
 
-/* An array with some powers of 2 to avoid shifting all the time. */
-extern int powers_of_two[10];
-
 void init_powers_of_two(void);
 int square(int i, int j);
 void set_cell(int i, int j, int n);
