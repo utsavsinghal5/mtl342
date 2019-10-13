@@ -71,6 +71,7 @@ int main(int argc, char** argv)
     }
     printf("                    ");
     row_separator();
+    printf("\n");
     return 0;
 }
 
