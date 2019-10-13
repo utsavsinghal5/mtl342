@@ -8,7 +8,7 @@
 void row_separator(void);
 
 /* The Sudoku matrix itself. */
-int matrix[9][9];
+int sudoku_matrix[9][9];
 
 /* Which numbers were given as input_sudoku_position in the problem. */
 int input_sudoku_position[9][9];
@@ -45,8 +45,8 @@ int main(int argc, char** argv)
 
     // Below is the print function which outputs the sudoku 
     // in a proper square matrix format with proper boundaries.
-    // It uses data stored in matrix[9][9] and input_sudoku_position[9][9]
-    printf("                         Input is in \e[1;31m'Red'\e[0m \n");
+    // It uses data stored in sudoku_matrix[9][9] and input_sudoku_position[9][9]
+    printf("\n                         Input is in \e[1;31m'Red'\e[0m \n");
     printf("                         Output is in 'White' \n");   
     for (int i = 0; i < 9; ++i) {
         printf("                    ");
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
             printf("                    ");
         }
         for (int j = 0; j < 9; j++) {
-            int cell = matrix[i][j];
+            int cell = sudoku_matrix[i][j];
             if ((j % 3) == 0) {
                 printf("\e[1;34m|\e[0m ");
             } else {
@@ -78,9 +78,9 @@ int main(int argc, char** argv)
 void row_separator(void)
 {
     for (int i = 0; i < 3; ++i) {
-        printf("\e[1;34m+---------\e[0m");
+        printf("\e[1;34mX---------\e[0m");
     }
-    printf("\e[1;34m+\n\e[0m");
+    printf("\e[1;34mX\n\e[0m");
 }
 
 

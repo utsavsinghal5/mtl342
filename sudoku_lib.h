@@ -5,7 +5,7 @@
 extern int powers_of_two[10];
 
 /* The Sudoku matrix itself. */
-extern int matrix[9][9];
+extern int sudoku_matrix[9][9];
 
 /* Which numbers were given as input_sudoku_position in the problem. */
 extern int input_sudoku_position[9][9];

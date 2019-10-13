@@ -56,7 +56,7 @@ void set_cell(int i, int j, int n)
         printf("Wrong entered matrix\n");
         exit(1);
     }
-    matrix[i][j] = n;
+    sudoku_matrix[i][j] = n;
     rows[i] |= powers_of_two[n];
     cols[j] |= powers_of_two[n];
     squares[square(i, j)] |= powers_of_two[n];
@@ -68,8 +68,8 @@ void set_cell(int i, int j, int n)
 and squares. Returns the number it contained. */
 int clear_cell(int i, int j)
 {
-    int n = matrix[i][j];
-    matrix[i][j] = 0;
+    int n = sudoku_matrix[i][j];
+    sudoku_matrix[i][j] = 0;
     rows[i] &= ~powers_of_two[n];
     cols[j] &= ~powers_of_two[n];
     squares[square(i, j)] &= ~powers_of_two[n];
