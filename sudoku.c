@@ -45,6 +45,8 @@ int main(int argc, char** argv)
     // Below is the print function which outputs the sudoku 
     // in a proper square matrix format with proper boundaries.
     // It uses data stored in matrix[9][9] and input_sudoku_position[9][9]
+    printf("                         Input is in \e[1;31m'Red'\e[0m \n");
+    printf("                         Output is in 'White' \n");   
     for (int i = 0; i < 9; ++i) {
         printf("                    ");
         if ((i % 3) == 0) {

@@ -12,7 +12,6 @@ void init_powers_of_two(void)
 }
 
 /* Returns the index of the square the cell (i, j) belongs to. */
-
 int square(int i, int j)
 {
     return (i/3)*3 + j/3;
