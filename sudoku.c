@@ -141,7 +141,9 @@ void solve_sudoku(void)
                 --pos;
             } while (pos >= 0 && input_sudoku_position[pos/9][pos%9]);
             if (pos < 0) {
-                printf("No valid solution exist for this set of sudoku entries.\nPlease try different values\n");
+                printf("No valid solution exist for this set of sudoku entries.\n");
+                printf("Please try different values\n");
+                printf("Or check again if used same index more than once while entering input\n");
                 exit(1);
             }
         }
