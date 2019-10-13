@@ -45,8 +45,10 @@ int main(int argc, char** argv)
     solve_sudoku();
     
     for (int i = 0; i < 9; ++i) {
+        printf("                    ");
         if ((i % 3) == 0) {
             print_separator();
+            printf("                    ");
         }
         for (int j = 0; j < 9; j++) {
             int cell = matrix[i][j];
@@ -56,19 +58,18 @@ int main(int argc, char** argv)
                 printf(" ");
             }
             if (input_sudoku_position[i][j]) {
-                printf("\e[1;34m%d\e[0m ", cell);
+                printf("\e[1;31m%d\e[0m ", cell);
             } else {
                 printf("%d ", cell);
             }
         }
-        printf("|\n");
+        printf("\e[1;34m|\e[0m \n");
     }
+    printf("                    ");
     print_separator();
 
     return 0;
 }
-
-
 
 /* Utility to print lines and crosses, used by print_matrix. */
 void print_separator(void)
