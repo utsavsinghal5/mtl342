@@ -37,9 +37,13 @@ int powers_of_two[10];
 
 
 int main(int argc, char** argv)
-{
-    //Prepares input sudoku entries and checks them
+{   
+    //Initialize powers of two in a set to avoid
+    //repeated multiplication with power of two
+    //during execution.
     init_powers_of_two();
+
+    //Initializes input sudoku entries and checks its validity
     init_input_sudoku_position(argc-1, argv+1);
 
     solve_sudoku();
@@ -148,7 +152,7 @@ void solve_sudoku(void)
 /* Initializes the array with powers of 2. */
 void init_powers_of_two(void)
 {
-    for (int n = 1; n < 10; n++) {
+    for (int n = 0; n < 10; n++) {
         powers_of_two[n] = 1 << n;
     }
 }
