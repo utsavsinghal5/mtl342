@@ -2,13 +2,13 @@
 
 The program consists of sudoku implementation done as an assignment for MTL342 by me under Prof. Niladri Chatterjee in the academic session 2019-20. The assignment was finished on 13-10-2019 and was submitted on the same day.
 
-The program consists of three main files ~sudoku.c~ consisting of main, ~sudoku_lib.h~ as a library and ~function.c~ consisting of utility functions used in main.
+The program consists of three main files "sudoku.c" consisting of main, "sudoku_lib.h" as a library and "function.c" consisting of utility functions used in main.
 
 *Operation:
 	- To run the program, execute the Makefile in terminal(with the
-	  same directory as program) by typing ~make~. It will generate an executable output file named ~sudoku~
+	  same directory as program) by typing "make". It will generate an executable output file named "sudoku"
 
-	- Now execute the output file by entering ~./sudoku~ followed by
+	- Now execute the output file by entering "./sudoku" followed by
 	  entries to be entered with space after each entry.
 
 *Format for entry:
@@ -18,8 +18,8 @@ The program consists of three main files ~sudoku.c~ consisting of main, ~sudoku_
 
 
 *For example:
-	- So after running makefile if enter ~./sudoku 111 124 546 991 
-	  714 382~, the generated sudoku will be.
+	- So after running makefile if enter ./sudoku 111 124 546 991 
+	  714 382, the generated sudoku will be.
 
 	                X---------X---------X---------X
                     | 1  4    |         |         | 
