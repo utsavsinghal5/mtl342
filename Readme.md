@@ -1,6 +1,4 @@
-#+TITLE: Sudoku for MTL342 Prof. Niladri Chatterjee
-
-The program consists of sudoku implementation done as an assignment for MTL342 by me under Prof. Niladri Chatterjee in the academic session 2019-20. The assignment was finished on 13-10-2019 and was submitted on the same day.
+#+TITLE: Sudoku for MTL342
 
 The program consists of three main files "sudoku.c" consisting of main, "sudoku_lib.h" as a library and "function.c" consisting of utility functions used in main.
 
